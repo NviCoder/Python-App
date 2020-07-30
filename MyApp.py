@@ -6,6 +6,13 @@ import os
 root = tk.Tk()
 apps = []
 
+if os.path.isfile('save.txt'):
+    with open('save.txt', 'r') as f:
+        tempApps = f.read()
+        tempApps = tempApps.split(',')
+        apps = [x for x in tempApps if x.strip()]
+
+
 "This function Adds The files to the list of what we want to open"
 
 
@@ -42,4 +49,13 @@ runApps = tk.Button(root, text="Run Apps", padx=10,
                     pady=5, fg="white", bg="#263D42", command=runApps)
 runApps.pack()
 
+
+for app in apps:
+    lable = tk.Label(frame, text=app)
+    lable.pack()
 root.mainloop()
+
+
+with open('save.txt', 'w') as f:
+    for app in apps:
+        f.write(app + ',')
