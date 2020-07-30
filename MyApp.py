@@ -13,7 +13,10 @@ if os.path.isfile('save.txt'):
         apps = [x for x in tempApps if x.strip()]
 
 
-"This function Adds The files to the list of what we want to open"
+"""
+This function Adds The files to the 
+list of what we want to open
+"""
 
 
 def addApps():
@@ -30,6 +33,11 @@ def addApps():
         lable.pack()
 
 
+"""
+This function Runs the apps that selected!!
+"""
+
+
 def runApps():
     for app in apps:
         os.startfile(app)
@@ -38,8 +46,10 @@ def runApps():
 canvas = tk.Canvas(root, height=700, width=700, bg="#263D42")
 canvas.pack()
 
+
 frame = tk.Frame(root, bg="white")
 frame.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
+
 
 openFile = tk.Button(root, text="Open File", padx=10,
                      pady=5, fg="white", bg="#263D42", command=addApps)
@@ -53,6 +63,8 @@ runApps.pack()
 for app in apps:
     lable = tk.Label(frame, text=app)
     lable.pack()
+
+
 root.mainloop()
 
 
